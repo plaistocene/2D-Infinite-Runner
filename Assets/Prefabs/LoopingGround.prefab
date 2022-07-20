@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4543173945493068634}
   m_Layer: 0
-  m_Name: ParralaxingGround
+  m_Name: LoopingGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1498243424826296389, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
       propertyPath: m_LocalScale.y
-      value: 7.3723
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1498243424826296389, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1498243424826296389, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.1861
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 1498243424826296389, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
       propertyPath: m_LocalPosition.z
@@ -96,29 +96,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SecondGround
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2783030106508798440, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
+      propertyPath: otherGround
+      value: 
+      objectReference: {fileID: 7804396801763847800}
+    - target: {fileID: 3317597015569304842, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
+      propertyPath: otherGround
+      value: 
+      objectReference: {fileID: 7804396801763847800}
+    - target: {fileID: 7174242563039061528, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
+      propertyPath: distanceUpperRange
+      value: 35
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7174242563039061528, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
---- !u!1 &4205809855685299877 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1498243424826296395, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
-  m_PrefabInstance: {fileID: 3356551384158930670}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2783030106508798440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4205809855685299877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aa0804915d1749a3b94312162928427, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  depth: 1
-  otherGround: {fileID: 7804396801763847800}
-  distanceLowerRange: 20
-  distanceUpperRange: 30
 --- !u!4 &4205809855685299883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1498243424826296389, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
@@ -136,20 +128,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1498243424826296389, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1498243424826296389, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 7.3723
-      objectReference: {fileID: 0}
-    - target: {fileID: 1498243424826296389, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
       propertyPath: m_LocalPosition.x
       value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 1498243424826296389, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.1861
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 1498243424826296389, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
       propertyPath: m_LocalPosition.z
@@ -187,29 +171,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstGround
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3317597015569304842, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
+      propertyPath: otherGround
+      value: 
+      objectReference: {fileID: 4205809855685299883}
+    - target: {fileID: 7174242563039061528, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
+      propertyPath: otherGround
+      value: 
+      objectReference: {fileID: 4205809855685299883}
+    m_RemovedComponents:
+    - {fileID: 2783030106508798440, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
---- !u!1 &7804396801763847798 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1498243424826296395, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
-  m_PrefabInstance: {fileID: 8684098959788090941}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7174242563039061528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7804396801763847798}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aa0804915d1749a3b94312162928427, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  depth: 1
-  otherGround: {fileID: 4205809855685299883}
-  distanceLowerRange: 20
-  distanceUpperRange: 30
 --- !u!4 &7804396801763847800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1498243424826296389, guid: aa06e7cfc0506430593790e8d8a46c98, type: 3}
