@@ -6,73 +6,52 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     private Rigidbody2D _rb2d;
-    
-    public float gravity = -300f;
-    public float jumpVelocity = 50f;
-    public float groundHeight = -8f;
-    public float maxJumpTime = 0.3f;
-    public float jumpTimer = 0.0f;
-    
+
+    public float jumpForce;
     public bool onGround;
+    public bool jump = false;
     public bool closeEnoughGround = false;
-    public bool isHoldingJump = false;
-    
-    public Vector2 velocity;
+
+    public float fallMultiplier;
+    public float lowJumpMultiplier;
 
     private void Awake()
     {
         _rb2d = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")) && (onGround || closeEnoughGround))
         {
-            onGround = false;
-            closeEnoughGround = false;
-            velocity.y = jumpVelocity;
-            isHoldingJump = true;
-            jumpTimer = 0f;
-        }
-        
-        if(Input.GetKeyUp("space") || Input.GetKeyUp("w"))
-        {
-            isHoldingJump = false; 
+            jump = true;
         }
     }
 
-    private void FixedUpdate()
+    // using 'Fixed'Update because we are messing with the physics
+    void FixedUpdate()
     {
-        // Getting the player position
-        Vector2 pos = transform.position;
-
-        // Teh calculations
-        if (!onGround)
+        if (jump)
         {
-            if (isHoldingJump)
-            {
-                jumpTimer += Time.fixedDeltaTime;
-                
-                if (jumpTimer >= maxJumpTime)
-                {
-                    isHoldingJump = false;
-                }
-            }
-
-            pos.y += velocity.y * Time.fixedDeltaTime;
-
-            if (!isHoldingJump)
-            {
-                if(!closeEnoughGround)
-                {
-                    velocity.y += gravity * Time.fixedDeltaTime;
-                }
-            }
+            jump = false;
+            _rb2d.velocity += Vector2.up * (jumpForce * Time.deltaTime);
+            onGround = false;
         }
 
-        
-        transform.position = pos;
+        if (_rb2d.velocity.y < 0)
+        {
+            _rb2d.velocity += Vector2.up * (Physics.gravity.y * fallMultiplier * Time.deltaTime);
+        }
+
+        if (_rb2d.velocity.y > 0 && !IsJumping())
+        {
+            _rb2d.velocity += Vector2.up * (Physics.gravity.y * lowJumpMultiplier * Time.deltaTime);
+        }
+    }
+
+    private static bool IsJumping()
+    {
+        return Input.GetKey("space") || Input.GetKey("w");
     }
 
     private void OnCollisionEnter2D(Collision2D col)
