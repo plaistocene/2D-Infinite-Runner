@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Parallax : MonoBehaviour
@@ -19,13 +17,16 @@ public class Parallax : MonoBehaviour
     {
         var realVelocity = _playerRigidbody2d.velocity.x / depth;
 
-        Vector2 pos = transform.position;
+        var transform1 = transform;
+        
+        Vector2 pos = transform1.position;
+        Vector2 scale = transform1.localScale;
 
         // Calculations Start
         pos.x -= realVelocity * Time.fixedDeltaTime;
 
-        if (pos.x < _mainCamera.position.x - 30f)
-            pos.x = _mainCamera.position.x + 30f;
+        if (pos.x + (scale.x / 2) < _mainCamera.position.x - 28.5f)
+            pos.x = _mainCamera.position.x + 28.5f;
         // Calculations End
 
         transform.position = pos;
