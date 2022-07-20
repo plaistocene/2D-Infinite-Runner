@@ -25,8 +25,8 @@ public class Parallax : MonoBehaviour
         // Calculations Start
         pos.x -= realVelocity * Time.fixedDeltaTime;
 
-        if (pos.x + (scale.x / 2) < _mainCamera.position.x - 28.5f)
-            pos.x = _mainCamera.position.x + 28.5f;
+        if (pos.x + (scale.x / 2) < _mainCamera.position.x - 35f)
+            pos.x = _mainCamera.position.x + 35f;
         // Calculations End
 
         transform.position = pos;
