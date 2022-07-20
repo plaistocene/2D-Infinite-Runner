@@ -20,7 +20,7 @@ public class GroundLoop : MonoBehaviour
         Vector2 pos = transform.position;
 
         // Calculations Start
-        if (pos.x + (transform.localScale.x / 2) + 10f < _player.position.x)
+        if (pos.x + (transform.localScale.x / 2) + 25f < _player.position.x)
         {
             distanceUpperRange = _playerHorizontalMovement.velocityForGroundGeneration.x / 2;
             
