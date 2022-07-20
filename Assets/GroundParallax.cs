@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GroundParallax : MonoBehaviour
@@ -8,6 +6,8 @@ public class GroundParallax : MonoBehaviour
 
     private Transform _player;
     public Transform otherGround;
+    public float distanceLowerRange = 20f;
+    public float distanceUpperRange = 35f;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class GroundParallax : MonoBehaviour
         if (pos.x + (transform.localScale.x / 2) + 10f < _player.position.x)
         {
             var position = otherGround.position;
-            pos.x = position.x + otherGround.localScale.x - 10f;
+            pos.x = position.x + otherGround.localScale.x + Random.Range(distanceLowerRange, distanceUpperRange);
             pos.y = position.y;
         }
         // Calculations End
