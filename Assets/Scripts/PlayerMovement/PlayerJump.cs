@@ -36,6 +36,7 @@ public class PlayerJump : MonoBehaviour
             jump = false;
             _rb2d.velocity += Vector2.up * (jumpForce * Time.deltaTime);
             onGround = false;
+            closeEnoughGround = false;
         }
 
         if (_rb2d.velocity.y < 0)
