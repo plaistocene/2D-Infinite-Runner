@@ -22,7 +22,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
     public float loweredSpeed;
     
     
-    public Vector2 testVelocity;
+    public Vector2 velocityForGroundGeneration;
 
     private void Awake()
     {
@@ -57,9 +57,6 @@ public class PlayerHorizontalMovement : MonoBehaviour
             _rb2d.AddForce(new Vector2(forwardForce, 0) * Time.fixedDeltaTime);
         }
 
-        // This is just for me to check player velocity should be deleted
-        testVelocity = _rb2d.velocity;
-
         // ReverseDash
         if (reverseDash)
         {
@@ -90,6 +87,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
             _rb2d.velocity = velocity;
         }
         
-        distance += testVelocity.x * Time.deltaTime;
+        velocityForGroundGeneration = _rb2d.velocity;
+        distance += velocityForGroundGeneration.x * Time.deltaTime;
     }
 }
