@@ -178,13 +178,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 0
   forwardForce: 500
-  maxHorizontalVelocity: 150
+  maxHorizontalVelocity: 75
   velocityFromPast: 0
   timeForPast: 2
   pastTimeCounter: 0
   canReverseDash: 1
   reverseDash: 0
-  reverseDashForce: 3
+  reverseDashForce: 5
   reverseDashCooldownTime: 4
   reverseDashTimer: 0
   shouldSpeedRecover: 0
