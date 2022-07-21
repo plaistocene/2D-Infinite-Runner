@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 843161753
-  m_SortingLayer: 2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.4176559, g: 1, b: 0.41037738, a: 1}
@@ -179,6 +179,9 @@ MonoBehaviour:
   distance: 0
   forwardForce: 500
   maxHorizontalVelocity: 150
+  velocityFromPast: 0
+  timeForPast: 2
+  pastTimeCounter: 0
   canReverseDash: 1
   reverseDash: 0
   reverseDashForce: 3
