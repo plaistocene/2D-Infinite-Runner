@@ -98,4 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 25, y: 3, z: -10}
-  smoothingFactor: 0.125
+  smoothingFactor: 1
