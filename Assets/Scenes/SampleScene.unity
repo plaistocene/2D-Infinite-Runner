@@ -323,10 +323,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2630352466873550524, guid: bbca53f670e794561b0497b63a86894b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbca53f670e794561b0497b63a86894b, type: 3}
 --- !u!1001 &2688374678199060473
@@ -384,6 +380,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 6650534075902556124, guid: 00d95db06738e44e9882b38db964deee, type: 3}
+      propertyPath: smoothingFactor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00d95db06738e44e9882b38db964deee, type: 3}
 --- !u!1001 &5913170256431758196
@@ -411,7 +411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4205809855685299883, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.7069
+      value: -24
       objectReference: {fileID: 0}
     - target: {fileID: 4543173945493068634, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
       propertyPath: m_RootOrder
@@ -479,7 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7804396801763847800, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23.7069
+      value: -24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
