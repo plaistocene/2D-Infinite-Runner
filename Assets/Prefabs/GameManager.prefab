@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3388d2d4e82db464ca1471ad1acac348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeRestart: 0
+  delayBeforeRestart: 1
   levelCompleteUI: {fileID: 0}
+  gameOverUI: {fileID: 0}
+  gameOverScore: {fileID: 0}
