@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 0
   forwardForce: 500
-  maxHorizontalVelocity: 75
+  maxHorizontalVelocity: 100
   velocityFromPast: 0
   timeForPast: 2
   pastTimeCounter: 0
