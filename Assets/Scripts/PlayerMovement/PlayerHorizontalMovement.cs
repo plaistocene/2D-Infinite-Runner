@@ -43,16 +43,12 @@ public class PlayerHorizontalMovement : MonoBehaviour
             canReverseDash = false;
         }
 
-        if (!canReverseDash)
-        {
-            reverseDashTimer += Time.deltaTime;
+        if (canReverseDash) return;
+        reverseDashTimer += Time.deltaTime;
 
-            if (reverseDashTimer >= reverseDashCooldownTime)
-            {
-                canReverseDash = true;
-                reverseDashTimer = 0f;
-            }
-        }
+        if (!(reverseDashTimer >= reverseDashCooldownTime)) return;
+        canReverseDash = true;
+        reverseDashTimer = 0f;
     }
 
     // TODO: This parts needs a refactoring
@@ -61,9 +57,8 @@ public class PlayerHorizontalMovement : MonoBehaviour
         // Horizontal movement
         if (_rb2d.velocity.x <= maxHorizontalVelocity)
         {
-            _rb2d.AddForce(new Vector2(forwardForce, 0) * Time.fixedDeltaTime);
+            _rb2d.AddForce(Vector2.right * (forwardForce * Time.fixedDeltaTime));
         }
-
 
         // If character hits a high wall but recovers with jump
         pastTimeCounter += Time.fixedDeltaTime;
