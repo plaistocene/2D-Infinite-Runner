@@ -43,12 +43,12 @@ TagManager:
   - name: Backgrounds
     uniqueID: 334761535
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Ground
     uniqueID: 73376671
     locked: 0
   - name: Player
     uniqueID: 843161753
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
