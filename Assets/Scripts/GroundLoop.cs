@@ -6,9 +6,9 @@ public class GroundLoop : MonoBehaviour
     private PlayerHorizontalMovement _playerHorizontalMovement;
     public Transform otherGround;
  
-    public float distanceLowerRange = 5f;
-    public float distanceUpperRange;
-
+    [Range(-15, 0)] public int ySpawnPositionMinValue = -8;
+    [Range(1, 15)] public int ySpawnPositionMaxValue = 11;
+    
     private void Awake()
     {
         _player = GameObject.Find("Player").GetComponent<Transform>();
@@ -17,31 +17,44 @@ public class GroundLoop : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector2 pos = transform.position;
+        var thisTransform = transform;
+        var thisPosition = thisTransform.position;
+        var thisScale = thisTransform.localScale;
 
         // Calculations Start
-        if (pos.x + (transform.localScale.x / 2) + 25f < _player.position.x)
+        if (thisPosition.x + (thisScale.x / 2) + 10f < _player.position.x)
         {
-            distanceUpperRange = _playerHorizontalMovement.velocityForGroundGeneration.x / 2;
+            var playerVelocityX = _playerHorizontalMovement.velocityForGroundGeneration.x;
             
-            var position = otherGround.position;
-            pos.x = position.x + otherGround.localScale.x + Random.Range(distanceLowerRange, distanceUpperRange);
-            pos.y = position.y + Random.Range(-11, 11);
+            var otherGroundPosition = otherGround.position;
+            
+            var randomScaleX = Random.Range(playerVelocityX / 2, playerVelocityX);
+            var randomPositionX = Random.Range(playerVelocityX / 7, playerVelocityX / 2);
+            var randomPositionY = Random.Range(ySpawnPositionMinValue, ySpawnPositionMaxValue);
+
+            if (playerVelocityX <= _playerHorizontalMovement.maxHorizontalVelocity * 0.9)
+            {
+                randomScaleX += 75;
+            }
+            
+            thisScale.x = randomScaleX;
+            thisPosition.x = otherGroundPosition.x + (otherGround.localScale.x / 2) + (thisScale.x / 2) + randomPositionX;
+            thisPosition.y = otherGroundPosition.y + randomPositionY;
             
             // Height check, we don't want them to go down any higher or lower
-            if (pos.y > 8)
+            if (thisPosition.y > 8)
             {
-                pos.y = 8;
+                thisPosition.y = 8;
             }
 
-            if (pos.y < -22)
+            if (thisPosition.y < -22)
             {
-                pos.y = -22;
+                thisPosition.y = -22;
             }
             // End of height check
+            transform.localScale = thisScale;
+            transform.position = thisPosition;
         }
         // Calculations End
-
-        transform.position = pos;
     }
 }
