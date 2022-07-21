@@ -940,10 +940,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 425705969}
     - target: {fileID: 7770191636748300600, guid: aeadb15393bd34eafb330c71b6e31724, type: 3}
-      propertyPath: _gameOverUI
-      value: 
-      objectReference: {fileID: 425705969}
-    - target: {fileID: 7770191636748300600, guid: aeadb15393bd34eafb330c71b6e31724, type: 3}
       propertyPath: gameOverScore
       value: 
       objectReference: {fileID: 425551348}
@@ -951,10 +947,6 @@ PrefabInstance:
       propertyPath: levelCompleteUI
       value: 
       objectReference: {fileID: 425705969}
-    - target: {fileID: 7770191636748300600, guid: aeadb15393bd34eafb330c71b6e31724, type: 3}
-      propertyPath: delayBeforeRestart
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7770191636748300601, guid: aeadb15393bd34eafb330c71b6e31724, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1162,7 +1154,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617414744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 3, z: 0}
+  m_LocalPosition: {x: -1.5, y: -11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
