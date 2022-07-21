@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 0
-  forwardForce: 150
-  maxHorizontalVelocity: 100
+  forwardForce: 500
+  maxHorizontalVelocity: 150
   canReverseDash: 1
   reverseDash: 0
   reverseDashForce: 3
@@ -188,7 +188,7 @@ MonoBehaviour:
   speedRecoverCountdownTime: 0.5
   speedRecoverTimer: 0
   loweredSpeed: 0
-  testVelocity: {x: 0, y: 0}
+  velocityForGroundGeneration: {x: 0, y: 0}
 --- !u!114 &537341866795401765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,8 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75dc59262375e43bfac4c0263e00b2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isReset: 0
-  levelOrientation: right
 --- !u!114 &1190667500
 MonoBehaviour:
   m_ObjectHideFlags: 0
