@@ -1544,26 +1544,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1319790202488993382, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319790202488993382, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.08672062
-      objectReference: {fileID: 0}
-    - target: {fileID: 1319790202488993382, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.14495541
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205809855685299883, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 43.414
-      objectReference: {fileID: 0}
-    - target: {fileID: 4205809855685299883, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -24
-      objectReference: {fileID: 0}
     - target: {fileID: 4543173945493068634, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1608,29 +1588,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4917955528656950965, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917955528656950965, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.08672062
-      objectReference: {fileID: 0}
-    - target: {fileID: 4917955528656950965, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.14495552
-      objectReference: {fileID: 0}
     - target: {fileID: 5420035759800078956, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
       propertyPath: m_Name
       value: LoopingGround
-      objectReference: {fileID: 0}
-    - target: {fileID: 7804396801763847800, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 43.414
-      objectReference: {fileID: 0}
-    - target: {fileID: 7804396801763847800, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -24
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a49aedcf95a834fbdba623a536ae09d4, type: 3}
