@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerHorizontalMovement : MonoBehaviour
@@ -6,12 +5,14 @@ public class PlayerHorizontalMovement : MonoBehaviour
     private Rigidbody2D _rb2d;
 
     public float distance = 0f;
-    
+
     public float forwardForce = 500f;
+
     public float maxHorizontalVelocity = 150f;
+
     // This velocity will be used if player can recover from hitting the side of the building but manage to jump in time
     public float velocityFromPast = 0f;
-    public float timeForPast = 0.7f;
+    public float timeForPast = 2f;
     public float pastTimeCounter = 0f;
     private bool _speedRecovered = true;
 
@@ -25,8 +26,8 @@ public class PlayerHorizontalMovement : MonoBehaviour
     public float speedRecoverCountdownTime = 0.5f;
     public float speedRecoverTimer = 0f;
     public float loweredSpeed;
-    
-    
+
+
     public Vector2 velocityForGroundGeneration;
 
     private void Awake()
@@ -61,11 +62,12 @@ public class PlayerHorizontalMovement : MonoBehaviour
         if (_rb2d.velocity.x <= maxHorizontalVelocity)
         {
             _rb2d.AddForce(new Vector2(forwardForce, 0) * Time.fixedDeltaTime);
-            // _rb2d.velocity += Vector2.right * (forwardForce * Time.fixedDeltaTime);
         }
 
+
+        // If character hits a high wall but recovers with jump
         pastTimeCounter += Time.fixedDeltaTime;
-        
+
         if (timeForPast <= pastTimeCounter && _speedRecovered)
         {
             pastTimeCounter = 0f;
@@ -75,27 +77,24 @@ public class PlayerHorizontalMovement : MonoBehaviour
         if (_rb2d.velocity.x < velocityFromPast && !shouldSpeedRecover)
         {
             _speedRecovered = false;
-            _rb2d.velocity += Vector2.right * velocityFromPast;
+            VelocityChange(Vector2.right * velocityFromPast);
         }
-        
-        if(_rb2d.velocity.x >= velocityFromPast)
+
+        if (_rb2d.velocity.x >= velocityFromPast)
         {
             _speedRecovered = true;
         }
-        
+
 
         // ReverseDash
         if (reverseDash)
         {
             reverseDash = false;
             shouldSpeedRecover = true;
-            var velocity = _rb2d.velocity;
-            
-            loweredSpeed = velocity.x / reverseDashForce;
 
-            velocity = new Vector2(velocity.x - loweredSpeed, 0);
+            loweredSpeed = (_rb2d.velocity.x / reverseDashForce);
 
-            _rb2d.velocity = velocity;
+            VelocityChange(Vector2.left * loweredSpeed);
         }
 
         if (shouldSpeedRecover)
@@ -107,14 +106,16 @@ public class PlayerHorizontalMovement : MonoBehaviour
         {
             shouldSpeedRecover = false;
             speedRecoverTimer = 0f;
-            var velocity = _rb2d.velocity;
-            
-            velocity = new Vector2(loweredSpeed + velocity.x, velocity.y);
-            
-            _rb2d.velocity = velocity;
+
+            VelocityChange(Vector2.right * loweredSpeed);
         }
-        
+
         velocityForGroundGeneration = _rb2d.velocity;
         distance += velocityForGroundGeneration.x * Time.deltaTime;
+    }
+
+    private void VelocityChange(Vector2 otherVelocity)
+    {
+        _rb2d.velocity += otherVelocity;
     }
 }
