@@ -18,7 +18,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
 
     public bool canReverseDash = true;
     public bool reverseDash = false;
-    [Range(1, 10)] public float reverseDashForce = 3f;
+    [Range(1, 10)] public float reverseDashForce = 5f;
     public float reverseDashCooldownTime = 4f;
     public float reverseDashTimer = 0f;
 
@@ -50,8 +50,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
         canReverseDash = true;
         reverseDashTimer = 0f;
     }
-
-    // TODO: This parts needs a refactoring
+    
     void FixedUpdate()
     {
         // Horizontal movement
@@ -72,14 +71,14 @@ public class PlayerHorizontalMovement : MonoBehaviour
         if (_rb2d.velocity.x < velocityFromPast && !shouldSpeedRecover)
         {
             _speedRecovered = false;
-            VelocityChange(Vector2.right * velocityFromPast);
+            IncreaseVelocity(velocityFromPast);
+            
+            if (_rb2d.velocity.x >= velocityFromPast)
+            {
+                _speedRecovered = true;
+            }
         }
-
-        if (_rb2d.velocity.x >= velocityFromPast)
-        {
-            _speedRecovered = true;
-        }
-
+        
 
         // ReverseDash
         if (reverseDash)
@@ -89,26 +88,36 @@ public class PlayerHorizontalMovement : MonoBehaviour
 
             loweredSpeed = (_rb2d.velocity.x / reverseDashForce);
 
-            VelocityChange(Vector2.left * loweredSpeed);
+            DecreaseVelocity(loweredSpeed);
         }
 
         if (shouldSpeedRecover)
         {
             speedRecoverTimer += Time.fixedDeltaTime;
-        }
+            
+            if (speedRecoverTimer >= speedRecoverCountdownTime)
+            {
+                shouldSpeedRecover = false;
+                speedRecoverTimer = 0f;
 
-        if (shouldSpeedRecover && speedRecoverTimer >= speedRecoverCountdownTime)
-        {
-            shouldSpeedRecover = false;
-            speedRecoverTimer = 0f;
-
-            VelocityChange(Vector2.right * loweredSpeed);
+                IncreaseVelocity(loweredSpeed);
+            }
         }
 
         velocityForGroundGeneration = _rb2d.velocity;
         distance += velocityForGroundGeneration.x * Time.deltaTime;
     }
 
+    private void IncreaseVelocity(float value)
+    {
+        VelocityChange(Vector2.right * value);
+    }
+
+    private void DecreaseVelocity(float value)
+    {
+        VelocityChange(Vector2.left * value);
+    }
+    
     private void VelocityChange(Vector2 otherVelocity)
     {
         _rb2d.velocity += otherVelocity;
