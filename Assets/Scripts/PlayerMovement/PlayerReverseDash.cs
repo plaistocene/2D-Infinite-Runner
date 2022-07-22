@@ -42,10 +42,10 @@ public class PlayerReverseDash : MonoBehaviour
         {
             reverseDashTimer -= Time.deltaTime;
 
-            if (reverseDashTimer < 0f)
+            if (reverseDashTimer <= 0f)
             {
                 canReverseDash = true;
-                reverseDashTimer = reverseDashCooldownTime;
+                reverseDashTimer = 0f;
                 reverseDashCoolDownIndicator.SetActive(true);
             }
         }
