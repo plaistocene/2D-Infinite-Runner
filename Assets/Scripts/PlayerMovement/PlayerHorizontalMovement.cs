@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerHorizontalMovement : MonoBehaviour
@@ -15,42 +16,23 @@ public class PlayerHorizontalMovement : MonoBehaviour
     public float timeForPast = 2f;
     public float pastTimeCounter = 0f;
     private bool _speedRecovered = true;
-
-    public bool canReverseDash = true;
-    public bool reverseDash = false;
-    [Range(1, 10)] public float reverseDashForce = 5f;
-    public float reverseDashCooldownTime = 4f;
-    public float reverseDashTimer = 0f;
-
-    public bool shouldSpeedRecover = false;
-    public float speedRecoverCountdownTime = 0.5f;
-    public float speedRecoverTimer = 0f;
-    public float loweredSpeed;
-
-
+    
+    
     public Vector2 velocityForGroundGeneration;
+    private VelocityChangeFunctions _velocityChangeFunctions;
+    private PlayerReverseDash _playerReverseDash;
 
     private void Awake()
     {
+        _velocityChangeFunctions = GetComponent<VelocityChangeFunctions>();
         _rb2d = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void Start()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && canReverseDash)
-        {
-            reverseDash = true;
-            canReverseDash = false;
-        }
-
-        if (canReverseDash) return;
-        reverseDashTimer += Time.deltaTime;
-
-        if (!(reverseDashTimer >= reverseDashCooldownTime)) return;
-        canReverseDash = true;
-        reverseDashTimer = 0f;
+        _playerReverseDash = GetComponent<PlayerReverseDash>();
     }
-    
+
     void FixedUpdate()
     {
         // Horizontal movement
@@ -68,58 +50,20 @@ public class PlayerHorizontalMovement : MonoBehaviour
             velocityFromPast = _rb2d.velocity.x;
         }
 
-        if (_rb2d.velocity.x < velocityFromPast && !shouldSpeedRecover)
+        if (_rb2d.velocity.x < velocityFromPast && !_playerReverseDash.shouldSpeedRecover)
         {
             _speedRecovered = false;
-            IncreaseVelocity(velocityFromPast);
+            _velocityChangeFunctions.IncreaseVelocity(velocityFromPast);
             
             if (_rb2d.velocity.x >= velocityFromPast)
             {
                 _speedRecovered = true;
             }
         }
-        
 
-        // ReverseDash
-        if (reverseDash)
-        {
-            reverseDash = false;
-            shouldSpeedRecover = true;
-
-            loweredSpeed = (_rb2d.velocity.x / reverseDashForce);
-
-            DecreaseVelocity(loweredSpeed);
-        }
-
-        if (shouldSpeedRecover)
-        {
-            speedRecoverTimer += Time.fixedDeltaTime;
-            
-            if (speedRecoverTimer >= speedRecoverCountdownTime)
-            {
-                shouldSpeedRecover = false;
-                speedRecoverTimer = 0f;
-
-                IncreaseVelocity(loweredSpeed);
-            }
-        }
-
+        // TODO: remove velocity for ground generation, please, groundloop can also reach rigidbody
         velocityForGroundGeneration = _rb2d.velocity;
         distance += velocityForGroundGeneration.x * Time.deltaTime;
     }
-
-    private void IncreaseVelocity(float value)
-    {
-        VelocityChange(Vector2.right * value);
-    }
-
-    private void DecreaseVelocity(float value)
-    {
-        VelocityChange(Vector2.left * value);
-    }
     
-    private void VelocityChange(Vector2 otherVelocity)
-    {
-        _rb2d.velocity += otherVelocity;
-    }
 }
