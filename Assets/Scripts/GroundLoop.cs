@@ -24,7 +24,7 @@ public class GroundLoop : MonoBehaviour
         // Calculations Start
         if (thisPosition.x + (thisScale.x / 2) + 10f < _player.position.x)
         {
-            var playerVelocityX = _playerHorizontalMovement.velocityForGroundGeneration.x;
+            var playerVelocityX = _playerHorizontalMovement.velocity.x;
             
             var otherGroundPosition = otherGround.position;
             

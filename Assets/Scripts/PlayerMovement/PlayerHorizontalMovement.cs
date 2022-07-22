@@ -16,10 +16,10 @@ public class PlayerHorizontalMovement : MonoBehaviour
     public float pastTimeCounter;
     private bool _speedRecovered = true;
     
-    
-    public Vector2 velocityForGroundGeneration;
     private VelocityChangeFunctions _velocityChangeFunctions;
     private PlayerReverseDash _playerReverseDash;
+
+    public Vector2 velocity;
 
     private void Awake()
     {
@@ -34,8 +34,9 @@ public class PlayerHorizontalMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        velocity = _rb2d.velocity;
         // Horizontal movement
-        if (_rb2d.velocity.x <= maxHorizontalVelocity)
+        if (velocity.x <= maxHorizontalVelocity)
         {
             _rb2d.AddForce(Vector2.right * (forwardForce * Time.fixedDeltaTime));
         }
@@ -49,20 +50,19 @@ public class PlayerHorizontalMovement : MonoBehaviour
             velocityFromPast = _rb2d.velocity.x;
         }
 
-        if (_rb2d.velocity.x < velocityFromPast && !_playerReverseDash.shouldSpeedRecover)
+        if (velocity.x < velocityFromPast && !_playerReverseDash.shouldSpeedRecover)
         {
             _speedRecovered = false;
             _velocityChangeFunctions.IncreaseVelocity(velocityFromPast);
             
-            if (_rb2d.velocity.x >= velocityFromPast)
+            if (velocity.x >= velocityFromPast)
             {
                 _speedRecovered = true;
             }
         }
-
-        // TODO: remove velocity for ground generation, please, groundloop can also reach rigidbody
-        velocityForGroundGeneration = _rb2d.velocity;
-        distance += velocityForGroundGeneration.x * Time.deltaTime;
+        
+        velocity = _rb2d.velocity;
+        distance += velocity.x * Time.deltaTime;
     }
     
 }
