@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 537341866795401765}
   - component: {fileID: 1190667501}
   - component: {fileID: 1190667500}
+  - component: {fileID: 9060122623265087702}
+  - component: {fileID: 739572422}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -182,15 +184,6 @@ MonoBehaviour:
   velocityFromPast: 0
   timeForPast: 2
   pastTimeCounter: 0
-  canReverseDash: 1
-  reverseDash: 0
-  reverseDashForce: 5
-  reverseDashCooldownTime: 4
-  reverseDashTimer: 0
-  shouldSpeedRecover: 0
-  speedRecoverCountdownTime: 0.5
-  speedRecoverTimer: 0
-  loweredSpeed: 0
   velocityForGroundGeneration: {x: 0, y: 0}
 --- !u!114 &537341866795401765
 MonoBehaviour:
@@ -232,5 +225,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d507e36cc81504cfaa9e09a44af21971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9060122623265087702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516704328491720509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79a2d65e5d9e4a2ba998e5e2f2a32a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canReverseDash: 1
+  reverseDash: 0
+  reverseDashForce: 3
+  reverseDashCooldownTime: 4
+  reverseDashTimer: 0
+  shouldSpeedRecover: 0
+  speedRecoverCountdownTime: 0.5
+  speedRecoverTimer: 0
+  loweredSpeed: 0
+  reverseDashCoolDownIndicator: {fileID: 0}
+--- !u!114 &739572422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516704328491720509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e5979dbde10496a8130c986a4026a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
