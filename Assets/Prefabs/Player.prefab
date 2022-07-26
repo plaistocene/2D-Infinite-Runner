@@ -19,7 +19,8 @@ GameObject:
   - component: {fileID: 1190667500}
   - component: {fileID: 9060122623265087702}
   - component: {fileID: 739572422}
-  - component: {fileID: 1267051741711649077}
+  - component: {fileID: 7639641679975461966}
+  - component: {fileID: 4310137859155495544}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -204,6 +205,9 @@ MonoBehaviour:
   closeEnoughGround: 0
   fallMultiplier: 25
   lowJumpMultiplier: 35
+  a_groundHit: 0
+  a_scale: 1
+  a_falling: 0
 --- !u!114 &1190667501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +254,8 @@ MonoBehaviour:
   speedRecoverTimer: 0
   loweredSpeed: 0
   reverseDashCoolDownIndicator: {fileID: 0}
+  a_reverseDashScale: 0
+  a_reverseDashSpeedRecoverSpeed: 0
 --- !u!114 &739572422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95e5979dbde10496a8130c986a4026a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1267051741711649077
+--- !u!114 &7639641679975461966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,6 +277,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1516704328491720509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95e5979dbde10496a8130c986a4026a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f87e2b11058848c8b7796fcd39ec424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetDownScale: 1
+  targetUpScale: 3
+  duration: 0.3
+  reverseDashScale: 0
+--- !u!114 &4310137859155495544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516704328491720509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4fa92209fea418d9ef57a02eb8343f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScale: {x: 1.5, y: 4.5, z: 1}
+  originalScale: {x: 3, y: 3, z: 3}
+  duration: 0.4
