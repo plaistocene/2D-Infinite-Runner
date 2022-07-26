@@ -18,6 +18,9 @@ public class PlayerReverseDash : MonoBehaviour
     private VelocityChangeFunctions _velocityChangeFunctions;
 
     public GameObject reverseDashCoolDownIndicator;
+
+    public bool a_reverseDashScale;
+    public bool a_reverseDashSpeedRecoverSpeed;
     
 
     private void Awake()
@@ -35,6 +38,7 @@ public class PlayerReverseDash : MonoBehaviour
             reverseDash = true;
             canReverseDash = false;
             reverseDashTimer = reverseDashCooldownTime;
+            a_reverseDashScale = true;
             reverseDashCoolDownIndicator.SetActive(false);
         }
 
@@ -61,7 +65,7 @@ public class PlayerReverseDash : MonoBehaviour
 
             loweredSpeed = (_rb2d.velocity.x / reverseDashForce);
 
-            _velocityChangeFunctions.DecreaseVelocity(loweredSpeed);
+            _velocityChangeFunctions.DecreaseHorizontalVelocity(loweredSpeed);
         }
 
         if (shouldSpeedRecover)
@@ -73,7 +77,9 @@ public class PlayerReverseDash : MonoBehaviour
                 shouldSpeedRecover = false;
                 speedRecoverTimer = 0f;
 
-                _velocityChangeFunctions.IncreaseVelocity(loweredSpeed);
+                a_reverseDashSpeedRecoverSpeed = true;
+
+                _velocityChangeFunctions.IncreaseHorizontalVelocity(loweredSpeed);
             }
         }
     }

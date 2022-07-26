@@ -11,12 +11,22 @@ public class VelocityChangeFunctions : MonoBehaviour
         _rb2d = GetComponent<Rigidbody2D>();
     }
 
-    public void IncreaseVelocity(float value)
+    public void IncreaseVerticalVelocity(float value)
+    {
+        VelocityChange(Vector2.up * value);
+    }
+
+    public void DecreaseVerticalVelocity(float value)
+    {
+        VelocityChange(Vector2.down * value);
+    }
+
+    public void IncreaseHorizontalVelocity(float value)
     {
         VelocityChange(Vector2.right * value);
     }
 
-    public void DecreaseVelocity(float value)
+    public void DecreaseHorizontalVelocity(float value)
     {
         VelocityChange(Vector2.left * value);
     }

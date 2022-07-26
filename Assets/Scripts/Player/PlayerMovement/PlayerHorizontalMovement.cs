@@ -53,7 +53,7 @@ public class PlayerHorizontalMovement : MonoBehaviour
         if (velocity.x < velocityFromPast && !_playerReverseDash.shouldSpeedRecover)
         {
             _speedRecovered = false;
-            _velocityChangeFunctions.IncreaseVelocity(velocityFromPast);
+            _velocityChangeFunctions.IncreaseHorizontalVelocity(velocityFromPast);
             
             if (velocity.x >= velocityFromPast)
             {

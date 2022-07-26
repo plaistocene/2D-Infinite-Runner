@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
@@ -9,14 +6,21 @@ public class PlayerJump : MonoBehaviour
 
     public float jumpForce;
     public bool onGround;
-    public bool jump = false;
-    public bool closeEnoughGround = false;
+    public bool jump;
+    public bool closeEnoughGround;
 
     public float fallMultiplier;
     public float lowJumpMultiplier;
+    
+    private VelocityChangeFunctions _velocityChangeFunctions;
 
+    public bool a_groundHit;
+    public bool a_scale;
+    public bool a_falling;
+    
     private void Awake()
     {
+        _velocityChangeFunctions = GetComponent<VelocityChangeFunctions>();
         _rb2d = GetComponent<Rigidbody2D>();
     }
 
@@ -25,28 +29,31 @@ public class PlayerJump : MonoBehaviour
         if ((Input.GetKeyDown("space") || Input.GetKeyDown("w")) && (onGround || closeEnoughGround))
         {
             jump = true;
+            a_scale = true;
+            onGround = false;
+            closeEnoughGround = false;
         }
     }
 
-    // using 'Fixed'Update because we are messing with the physics
+    // using 'Fixed' Update because we are messing with the physics
     void FixedUpdate()
     {
         if (jump)
         {
             jump = false;
-            _rb2d.velocity += Vector2.up * (jumpForce * Time.deltaTime);
-            onGround = false;
-            closeEnoughGround = false;
+            _velocityChangeFunctions.IncreaseVerticalVelocity(jumpForce * Time.deltaTime);
         }
 
         if (_rb2d.velocity.y < 0)
         {
-            _rb2d.velocity += Vector2.up * (Physics.gravity.y * fallMultiplier * Time.deltaTime);
+            _velocityChangeFunctions.DecreaseVerticalVelocity(Physics.gravity.y * -fallMultiplier * Time.deltaTime);
+            a_falling = true;
         }
 
         if (_rb2d.velocity.y > 0 && !IsJumping())
         {
-            _rb2d.velocity += Vector2.up * (Physics.gravity.y * lowJumpMultiplier * Time.deltaTime);
+            _velocityChangeFunctions.DecreaseVerticalVelocity(Physics.gravity.y * -lowJumpMultiplier * Time.deltaTime);
+            a_falling = true;
         }
     }
 
@@ -60,6 +67,7 @@ public class PlayerJump : MonoBehaviour
         if (col.gameObject.CompareTag("Ground"))
         {
             onGround = true;
+            a_groundHit = true;
         }
     }
 
