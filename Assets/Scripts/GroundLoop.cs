@@ -6,8 +6,8 @@ public class GroundLoop : MonoBehaviour
     private PlayerHorizontalMovement _playerHorizontalMovement;
     public Transform otherGround;
  
-    [Range(-15, 0)] public int ySpawnPositionMinValue = -8;
-    [Range(1, 15)] public int ySpawnPositionMaxValue = 11;
+    [Range(-15, 0)] public int ySpawnPositionMinValue;
+    [Range(1, 15)] public int ySpawnPositionMaxValue;
     
     private void Awake()
     {
@@ -31,6 +31,16 @@ public class GroundLoop : MonoBehaviour
             var randomScaleX = Random.Range(playerVelocityX / 2, playerVelocityX);
             var randomPositionX = Random.Range(playerVelocityX / 7, playerVelocityX / 2);
             var randomPositionY = Random.Range(ySpawnPositionMinValue, ySpawnPositionMaxValue);
+            
+            if (randomPositionY % 2 == 1)
+            {
+                randomPositionY += 1;
+            }
+
+            if (randomPositionY % 2 == -1)
+            {
+                randomPositionY -= 1;
+            }
 
             if (playerVelocityX <= _playerHorizontalMovement.maxHorizontalVelocity * 0.9)
             {
