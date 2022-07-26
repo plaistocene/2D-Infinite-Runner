@@ -77,4 +77,8 @@ crashlytics-build.properties
 # Build folder
 /GameBuilds/
 
+/Assets/Scripts/AnimTest.cs
+/Assets/Scenes/AnimationTest*
+/Assets/Scripts/AnimTest*
+
 
