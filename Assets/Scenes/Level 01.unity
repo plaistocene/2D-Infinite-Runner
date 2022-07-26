@@ -469,7 +469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -162.47466, y: -198.43478}
+  m_AnchoredPosition: {x: -120.9, y: -242.7}
   m_SizeDelta: {x: 690.7, y: 162.7191}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224022558
@@ -494,10 +494,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: a919cdc4be14943528d0bb4128f57fd1, type: 3}
-    m_FontSize: 30
+    m_FontSize: 26
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1737,7 +1737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1516704328491720511, guid: bbca53f670e794561b0497b63a86894b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1516704328491720511, guid: bbca53f670e794561b0497b63a86894b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1794,11 +1794,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2688374678040379257, guid: 00d95db06738e44e9882b38db964deee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2688374678040379257, guid: 00d95db06738e44e9882b38db964deee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2688374678040379257, guid: 00d95db06738e44e9882b38db964deee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1835,18 +1835,6 @@ PrefabInstance:
     - target: {fileID: 2688374678040379269, guid: 00d95db06738e44e9882b38db964deee, type: 3}
       propertyPath: m_Name
       value: Main Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 2688374678040379270, guid: 00d95db06738e44e9882b38db964deee, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.3962264
-      objectReference: {fileID: 0}
-    - target: {fileID: 2688374678040379270, guid: 00d95db06738e44e9882b38db964deee, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.3173963
-      objectReference: {fileID: 0}
-    - target: {fileID: 2688374678040379270, guid: 00d95db06738e44e9882b38db964deee, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.29343182
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00d95db06738e44e9882b38db964deee, type: 3}
