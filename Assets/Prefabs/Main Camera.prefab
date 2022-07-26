@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2688374678040379270}
   - component: {fileID: 2688374678040379268}
   - component: {fileID: 6650534075902556124}
+  - component: {fileID: 1149090086}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -44,7 +45,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.23529412, g: 0.6392157, b: 0.99215686, a: 0}
+  m_BackGroundColor: {r: 0.29343182, g: 0.3173963, b: 0.3962264, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -97,5 +98,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e54dad4fe474ca1a34440377e53e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 25, y: 3, z: -10}
-  smoothingFactor: 1
+  offset: {x: 15, y: 6, z: -10}
+  duration: 0
+  snapping: 0
+--- !u!114 &1149090086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2688374678040379269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f3ae3c222cc47ce8701cec235bb699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0.5
+  shakePower: 8
+  cameraRotationControlTimer: 0
