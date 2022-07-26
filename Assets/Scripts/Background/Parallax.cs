@@ -15,7 +15,7 @@ public class Parallax : MonoBehaviour
 
     void FixedUpdate()
     {
-        var realVelocity = _playerRigidbody2d.velocity.x / depth;
+        var realVelocity = (_playerRigidbody2d.velocity.x * 0.5f) / depth;
 
         var transform1 = transform;
         
