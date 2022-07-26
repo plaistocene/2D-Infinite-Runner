@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   otherGround: {fileID: 0}
-  ySpawnPositionMinValue: -11
-  ySpawnPositionMaxValue: 11
+  ySpawnPositionMinValue: -6
+  ySpawnPositionMaxValue: 6
 --- !u!1001 &1227808542684022814
 PrefabInstance:
   m_ObjectHideFlags: 0
