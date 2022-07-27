@@ -80,5 +80,11 @@ crashlytics-build.properties
 /Assets/Scripts/AnimTest.cs
 /Assets/Scenes/AnimationTest*
 /Assets/Scripts/AnimTest*
+/Assets/MaybeUseAudio/
+/Assets/MaybeUseAudio.meta
+/Assets/Sounds/_MP3/
+/Assets/Sounds/_ReadMe*
+/Assets/Sounds/_MP3.meta
+
 
 
