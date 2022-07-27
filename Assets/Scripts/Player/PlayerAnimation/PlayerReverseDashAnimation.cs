@@ -7,7 +7,7 @@ public class PlayerReverseDashAnimation : MonoBehaviour
 
     private PlayerReverseDash _playerReverseDash;
 
-    [SerializeField] private Vector3 targetScale = new Vector3(1.5f, 4.5f, 1f);
+    [SerializeField] private Vector3 targetScale = new Vector3(3.5f, 1.5f, 1f);
     [SerializeField] private Vector3 originalScale = Vector3.one * 3;
 
     [SerializeField][Range(0, 1)] private float duration;

@@ -18,15 +18,19 @@ public class PlayerReverseDash : MonoBehaviour
     private VelocityChangeFunctions _velocityChangeFunctions;
 
     public GameObject reverseDashCoolDownIndicator;
-
+    
+    private AudioManager _audioManager;
+    [SerializeField] private ParticleSystem jumpDust;
     public bool a_reverseDashScale;
     public bool a_reverseDashSpeedRecoverSpeed;
     
 
     private void Awake()
-    {
+    {   
+        _audioManager = FindObjectOfType<AudioManager>();
         _rb2d = GetComponent<Rigidbody2D>();
         _velocityChangeFunctions = GetComponent<VelocityChangeFunctions>();
+        jumpDust = GameObject.Find("JumpDust").GetComponent<ParticleSystem>();
     }
     
 
@@ -39,6 +43,8 @@ public class PlayerReverseDash : MonoBehaviour
             canReverseDash = false;
             reverseDashTimer = reverseDashCooldownTime;
             a_reverseDashScale = true;
+            jumpDust.Play();
+            _audioManager.Play("ReverseDash");
             reverseDashCoolDownIndicator.SetActive(false);
         }
 
