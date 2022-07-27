@@ -7,8 +7,9 @@ public class PlayerJumpAnimation : MonoBehaviour
 
     private PlayerJump _playerJump;
 
-    [SerializeField] private float targetDownScale = 1f;
     [SerializeField] private float targetUpScale = 3f;
+
+    [SerializeField] private Vector3 stretchScale;
 
     [SerializeField][Range(0, 1)] private float duration;
 
@@ -28,7 +29,7 @@ public class PlayerJumpAnimation : MonoBehaviour
         if (_playerJump.a_scale)
         {
             _playerJump.a_scale = false;
-            transform.DOScale(targetDownScale, duration);
+            transform.DOScale(stretchScale, duration);
         }
 
         if (_playerJump.a_falling && !reverseDashScale)
