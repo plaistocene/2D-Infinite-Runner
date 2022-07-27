@@ -19,8 +19,7 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-        var desiredPosition = _player.position + offset;
-        transform.position = desiredPosition;
+        transform.position = _player.position + offset;
         
         // var desiredPosition = _player.position + offset;
         // var smoothPosition = Vector3.Lerp(transform.position, desiredPosition, 0f);
