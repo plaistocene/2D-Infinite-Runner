@@ -53,13 +53,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Jump
     clip: {fileID: 8300000, guid: 5ae7c1d4584294f78acd17b5e4f0f2f2, type: 3}
-    volume: 0.093
+    volume: 0.045
     pitch: 1
     looping: 0
     source: {fileID: 0}
   - name: ReverseDash
     clip: {fileID: 8300000, guid: 0ef55eb83eb654b44ad2c949483d90d1, type: 3}
-    volume: 0.093
+    volume: 0.045
+    pitch: 1
+    looping: 0
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: efe1f5e320e5a4580a6286935187085c, type: 3}
+    volume: 0.045
     pitch: 1
     looping: 0
     source: {fileID: 0}
