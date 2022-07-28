@@ -5034,6 +5034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75dc59262375e43bfac4c0263e00b2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDestruction: {fileID: 4830725043091523662, guid: bacae883864b34005bcbfde7ce17c71f, type: 3}
 --- !u!114 &1190667500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5068,6 +5069,7 @@ MonoBehaviour:
   speedRecoverTimer: 0
   loweredSpeed: 0
   reverseDashCoolDownIndicator: {fileID: 0}
+  jumpDust: {fileID: 0}
   a_reverseDashScale: 0
   a_reverseDashSpeedRecoverSpeed: 0
 --- !u!114 &739572422
