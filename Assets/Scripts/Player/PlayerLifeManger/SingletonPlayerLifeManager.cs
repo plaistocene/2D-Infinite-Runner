@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Singleton : MonoBehaviour
+public class SingletonPlayerLifeManager : MonoBehaviour
 {
     #region Variables
 
-    private static Singleton _instance;
+    private static SingletonPlayerLifeManager _instance;
 
     #endregion
 
