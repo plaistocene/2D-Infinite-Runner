@@ -13,12 +13,9 @@ public class PlayerReverseDash : MonoBehaviour
     public bool shouldSpeedRecover;
     public float speedRecoverCountdownTime = 0.5f;
     public float speedRecoverTimer;
-    public float loweredSpeed;
+    public float increasedSpeed;
     
     private VelocityChangeFunctions _velocityChangeFunctions;
-
-    public GameObject reverseDashCoolDownIndicator;
-    
     private AudioManager _audioManager;
     [SerializeField] private ParticleSystem jumpDust;
     public bool a_reverseDashScale;
@@ -45,7 +42,6 @@ public class PlayerReverseDash : MonoBehaviour
             a_reverseDashScale = true;
             jumpDust.Play();
             _audioManager.Play("ReverseDash");
-            reverseDashCoolDownIndicator.SetActive(false);
         }
 
         if (!canReverseDash)
@@ -56,7 +52,6 @@ public class PlayerReverseDash : MonoBehaviour
             {
                 canReverseDash = true;
                 reverseDashTimer = 0f;
-                reverseDashCoolDownIndicator.SetActive(true);
             }
         }
     }
@@ -69,9 +64,9 @@ public class PlayerReverseDash : MonoBehaviour
             reverseDash = false;
             shouldSpeedRecover = true;
 
-            loweredSpeed = (_rb2d.velocity.x / reverseDashForce);
+            increasedSpeed = (_rb2d.velocity.x / reverseDashForce);
 
-            _velocityChangeFunctions.IncreaseHorizontalVelocity(16.666666F);
+            _velocityChangeFunctions.IncreaseHorizontalVelocity(increasedSpeed);
         }
 
         if (shouldSpeedRecover)
@@ -85,7 +80,7 @@ public class PlayerReverseDash : MonoBehaviour
 
                 a_reverseDashSpeedRecoverSpeed = true;
 
-                _velocityChangeFunctions.DecreaseHorizontalVelocity(loweredSpeed);
+                _velocityChangeFunctions.DecreaseHorizontalVelocity(increasedSpeed);
             }
         }
     }
