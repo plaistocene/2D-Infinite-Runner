@@ -70,6 +70,12 @@ MonoBehaviour:
     pitch: 1
     looping: 0
     source: {fileID: 0}
+  - name: ThemeMusic
+    clip: {fileID: 8300000, guid: 228e886ba441e4d5a9c9dc18dc5a2cc6, type: 3}
+    volume: 0.093
+    pitch: 1
+    looping: 0
+    source: {fileID: 0}
 --- !u!114 &3454874628302510132
 MonoBehaviour:
   m_ObjectHideFlags: 0
