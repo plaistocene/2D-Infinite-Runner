@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5301521275445418552}
   - component: {fileID: 3267859965260502772}
   - component: {fileID: 807476370555054155}
+  - component: {fileID: 635230236756874330}
   m_Layer: 0
   m_Name: PlayerLife
   m_TagString: Untagged
@@ -97,3 +98,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c87396910cf4b9cae4bdc8542b1f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0}
+--- !u!114 &635230236756874330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33987759489838377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2290b8c02aa43259ce1034508552a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDestruction: {fileID: 4830725043091523662, guid: bacae883864b34005bcbfde7ce17c71f, type: 3}
