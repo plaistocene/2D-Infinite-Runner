@@ -37,7 +37,7 @@ public class PlayerReverseDash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && canReverseDash)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canReverseDash)
         {
             reverseDash = true;
             canReverseDash = false;
@@ -71,7 +71,7 @@ public class PlayerReverseDash : MonoBehaviour
 
             loweredSpeed = (_rb2d.velocity.x / reverseDashForce);
 
-            _velocityChangeFunctions.DecreaseHorizontalVelocity(loweredSpeed);
+            _velocityChangeFunctions.IncreaseHorizontalVelocity(16.666666F);
         }
 
         if (shouldSpeedRecover)
@@ -85,7 +85,7 @@ public class PlayerReverseDash : MonoBehaviour
 
                 a_reverseDashSpeedRecoverSpeed = true;
 
-                _velocityChangeFunctions.IncreaseHorizontalVelocity(loweredSpeed);
+                _velocityChangeFunctions.DecreaseHorizontalVelocity(loweredSpeed);
             }
         }
     }

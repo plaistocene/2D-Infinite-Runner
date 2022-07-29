@@ -6,30 +6,32 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public float delayBeforeRestart = 2f;
-    public GameObject levelCompleteUI;
+    public float delayBeforeGameOverUI;
     public GameObject gameOverUI;
     public Text gameOverScore;
     private PlayerHorizontalMovement _playerHorizontalMovement;
+    public string distance;
     
-    private bool _gameRunning = true;
+    //_playerHorizontalMovement.distance.ToString("0");
 
     public void Awake()
     {
         _playerHorizontalMovement = GameObject.Find("Player").GetComponent<PlayerHorizontalMovement>();
     }
-
-    public void CompleteLevel()
-    {
-        FindObjectOfType<PlayerDisableMovement>().DisableMovement();
-        levelCompleteUI.SetActive(true);
-    }
+    
     public void EndGame()
     {
-        if (!_gameRunning) return;
-        _gameRunning = false;
         gameOverScore.text = _playerHorizontalMovement.distance.ToString("0");
+        Invoke(nameof(SetGameOverUI), 1.5f);
+    }
+    
+    private void SetGameOverUI()
+    {
         gameOverUI.SetActive(true);
-        // Invoke(nameof(Restart), delayBeforeRestart);
+    }
+
+    private void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
