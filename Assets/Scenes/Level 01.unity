@@ -2936,25 +2936,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7770191636748300600, guid: aeadb15393bd34eafb330c71b6e31724, type: 3}
-      propertyPath: gameOver
-      value: 
-      objectReference: {fileID: 2896301097441143075, guid: d162064f8281c44d3929e54a21b94006, type: 3}
-    - target: {fileID: 7770191636748300600, guid: aeadb15393bd34eafb330c71b6e31724, type: 3}
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 992465223}
     - target: {fileID: 7770191636748300600, guid: aeadb15393bd34eafb330c71b6e31724, type: 3}
-      propertyPath: playerLives
-      value: 99
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770191636748300600, guid: aeadb15393bd34eafb330c71b6e31724, type: 3}
       propertyPath: gameOverScore
       value: 
       objectReference: {fileID: 1672302913}
-    - target: {fileID: 7770191636748300600, guid: aeadb15393bd34eafb330c71b6e31724, type: 3}
-      propertyPath: levelCompleteUI
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7770191636748300601, guid: aeadb15393bd34eafb330c71b6e31724, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -5086,10 +5074,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2630352466873550524, guid: bbca53f670e794561b0497b63a86894b, type: 3}
-      propertyPath: forwardForce
-      value: 250
-      objectReference: {fileID: 0}
     - target: {fileID: 9060122623265087702, guid: bbca53f670e794561b0497b63a86894b, type: 3}
       propertyPath: reverseDashCooldownTime
       value: 0
@@ -5220,18 +5204,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerLifeManager
       objectReference: {fileID: 0}
-    - target: {fileID: 8837528863533700738, guid: 965f17cb950464104850d78d3c5ad9bb, type: 3}
-      propertyPath: offset.x
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8837528863533700738, guid: 965f17cb950464104850d78d3c5ad9bb, type: 3}
-      propertyPath: offset.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8837528863533700738, guid: 965f17cb950464104850d78d3c5ad9bb, type: 3}
-      propertyPath: playerLife
-      value: 
-      objectReference: {fileID: 33987759489838377, guid: efb3fec0ff92243aba2a9df10d68c4e2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 965f17cb950464104850d78d3c5ad9bb, type: 3}
 --- !u!1001 &4330777904246380262
