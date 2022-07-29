@@ -1,69 +1,84 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerLifeManager : MonoBehaviour
 {
     #region Variables
 
-    [SerializeField] private int playerLives = 3;
+    private static int _playerLives = 3;
 
     public GameObject playerLife;
     private GameObject _player;
     [SerializeField] private List<GameObject> instantiatedPlayerLives;
 
     public Vector2 offset;
-
+    
     #endregion
 
     private void Awake()
     {
         _player = GameObject.Find("Player");
+
         InstantiatePlayerLivesIndicator();
     }
-    
+
     private void InstantiatePlayerLivesIndicator()
     {
         var transform1 = _player.transform;
         var rotation = transform1.rotation;
         var position = transform1.position;
-        
-        instantiatedPlayerLives.Add(Instantiate(playerLife, position, rotation));
-        instantiatedPlayerLives.Add(Instantiate(playerLife, position, rotation));
-        instantiatedPlayerLives.Add(Instantiate(playerLife, position, rotation));
-        
+
+        for (int i = 0; i < _playerLives; i++)
+        {
+            instantiatedPlayerLives.Add(Instantiate(playerLife, position, rotation));
+        }
+
         foreach (var live in instantiatedPlayerLives)
         {
-            live.GetComponent<FollowPlayer>().SetOffset(offset);
-            offset.x += 1.5f;
+            SetOffsetForFollowPlayer(live);
         }
     }
-    
+
+    private void SetOffsetForFollowPlayer(GameObject live)
+    {
+        live.GetComponent<FollowPlayer>().SetOffset(offset);
+        offset.x += 1.5f;
+    }
+
     #region Player Life Modifications
 
     public int ReducePlayerLivesByOne()
     {
-        playerLives -= 1;
-        return playerLives;
+        _playerLives -= 1;
+        instantiatedPlayerLives.Last().GetComponent<DestroyPlayerLife>().DestroyLife();
+        instantiatedPlayerLives.RemoveAt(instantiatedPlayerLives.Count - 1);
+        offset.x -= 1.5f;
+        return _playerLives;
     }
 
     public void IncreasePlayerLivesByOne()
     {
-        playerLives += 1;
+        _playerLives += 1;
+        var transform1 = _player.transform;
+        var rotation = transform1.rotation;
+        var position = transform1.position;
+        instantiatedPlayerLives.Add(Instantiate(playerLife, position, rotation));
+        SetOffsetForFollowPlayer(instantiatedPlayerLives.Last());
     }
 
     public void ResetPlayerHealth()
     {
-        playerLives = 3;
+        _playerLives = 3;
     }
 
     #endregion
-    
+
     #region Getters
 
     public int GetPlayerLives()
     {
-        return playerLives;
+        return _playerLives;
     }
 
     #endregion
