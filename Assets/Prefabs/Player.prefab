@@ -4996,6 +4996,7 @@ MonoBehaviour:
   distance: 0
   forwardForce: 500
   maxHorizontalVelocity: 75
+  maxSpeedReached: 0
   velocityFromPast: 0
   timeForPast: 2
   pastTimeCounter: 0
@@ -5035,6 +5036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDestruction: {fileID: 4830725043091523662, guid: bacae883864b34005bcbfde7ce17c71f, type: 3}
+  _playerLives: 0
 --- !u!114 &1190667500
 MonoBehaviour:
   m_ObjectHideFlags: 0
