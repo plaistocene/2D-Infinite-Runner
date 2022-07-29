@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public float delayBeforeGameOverUI;
+    [SerializeField] private float delayAfterCharacterDeath = 1.5f;
     public GameObject gameOverUI;
     public Text gameOverScore;
     private PlayerHorizontalMovement _playerHorizontalMovement;
-    public string distance;
     
     //_playerHorizontalMovement.distance.ToString("0");
 
@@ -19,10 +18,11 @@ public class GameManager : MonoBehaviour
         _playerHorizontalMovement = GameObject.Find("Player").GetComponent<PlayerHorizontalMovement>();
     }
     
-    public void EndGame()
+    public void GameOver()
     {
         gameOverScore.text = _playerHorizontalMovement.distance.ToString("0");
-        Invoke(nameof(SetGameOverUI), 1.5f);
+        
+        Invoke(nameof(SetGameOverUI), delayAfterCharacterDeath);
     }
     
     private void SetGameOverUI()
@@ -30,7 +30,12 @@ public class GameManager : MonoBehaviour
         gameOverUI.SetActive(true);
     }
 
-    private void Restart()
+    public void Retry()
+    {
+        Invoke(nameof(RestartLevel), delayAfterCharacterDeath);
+    }
+
+    private void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
