@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2403287861449291266}
   - component: {fileID: 8837528863533700738}
-  - component: {fileID: 4511280376520927134}
   m_Layer: 0
   m_Name: PlayerLifeManager
   m_TagString: Untagged
@@ -45,16 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0589073e4e548f087f5153630536cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLives: 3
---- !u!114 &4511280376520927134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7530355103185966567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf250e97b3a68441fb03890d8f660060, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  playerLife: {fileID: 33987759489838377, guid: efb3fec0ff92243aba2a9df10d68c4e2, type: 3}
+  instantiatedPlayerLives: []
+  offset: {x: -6, y: 15}
