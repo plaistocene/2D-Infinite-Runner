@@ -4994,7 +4994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 0
-  forwardForce: 500
+  forwardForce: 250
   maxHorizontalVelocity: 75
   maxSpeedReached: 0
   velocityFromPast: 0
@@ -5036,7 +5036,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDestruction: {fileID: 4830725043091523662, guid: bacae883864b34005bcbfde7ce17c71f, type: 3}
-  _playerLives: 0
 --- !u!114 &1190667500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5069,8 +5068,7 @@ MonoBehaviour:
   shouldSpeedRecover: 0
   speedRecoverCountdownTime: 0.5
   speedRecoverTimer: 0
-  loweredSpeed: 0
-  reverseDashCoolDownIndicator: {fileID: 0}
+  increasedSpeed: 0
   jumpDust: {fileID: 0}
   a_reverseDashScale: 0
   a_reverseDashSpeedRecoverSpeed: 0
