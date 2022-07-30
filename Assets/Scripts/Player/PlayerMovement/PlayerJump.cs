@@ -11,7 +11,7 @@ public class PlayerJump : MonoBehaviour
 
     public float fallMultiplier;
     public float lowJumpMultiplier;
-    
+
     private VelocityChangeFunctions _velocityChangeFunctions;
 
     public bool a_groundHit;
@@ -23,7 +23,7 @@ public class PlayerJump : MonoBehaviour
 
     private void Awake()
     {
-        _audioManager = FindObjectOfType<AudioManager>();
+        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         _velocityChangeFunctions = GetComponent<VelocityChangeFunctions>();
         _rb2d = GetComponent<Rigidbody2D>();
         jumpDust = GameObject.Find("JumpDust").GetComponent<ParticleSystem>();
@@ -58,7 +58,8 @@ public class PlayerJump : MonoBehaviour
                 a_falling = true;
                 break;
             case > 0 when !IsJumping():
-                _velocityChangeFunctions.DecreaseVerticalVelocity(Physics.gravity.y * -lowJumpMultiplier * Time.deltaTime);
+                _velocityChangeFunctions.DecreaseVerticalVelocity(Physics.gravity.y * -lowJumpMultiplier *
+                                                                  Time.deltaTime);
                 a_falling = true;
                 break;
         }

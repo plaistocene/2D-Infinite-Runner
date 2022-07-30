@@ -10,7 +10,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void Awake()
     {
-        _audioManager = FindObjectOfType<AudioManager>();
+        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         _playerLifeManager = FindObjectOfType<PlayerLifeManager>();
     }
 
@@ -23,7 +23,7 @@ public class PlayerCollision : MonoBehaviour
             InstantiatePlayerDestruction();
 
             _audioManager.Play("Death");
-            
+
             _playerLives = _playerLifeManager.ReducePlayerLivesByOne();
 
             if (_playerLives <= 0)
