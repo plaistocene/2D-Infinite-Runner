@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
     #region Variables
 
     public Sound[] sounds;
+    private static AudioManager _instance;
 
     #endregion
 
@@ -13,6 +14,16 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        if (_instance == null)
+            _instance = this;
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+        
         foreach (var s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -26,10 +37,16 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("LevelMusic");
+        Play("ThemeMusic");
     }
 
     #endregion
+
+    public void PlayLevelMusic()
+    {
+        StopPlaying("ThemeMusic");
+        Play("LevelMusic");
+    }
 
     public void Play(string clipName)
     {
@@ -42,5 +59,18 @@ public class AudioManager : MonoBehaviour
         }
 
         s.source.Play();
+    }
+    
+    public void StopPlaying(string clipName)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == clipName);
+
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " was not found");
+            return;
+        }
+
+        s.source.Stop();
     }
 }

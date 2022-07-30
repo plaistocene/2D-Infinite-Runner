@@ -23,8 +23,8 @@ public class PlayerReverseDash : MonoBehaviour
     
 
     private void Awake()
-    {   
-        _audioManager = FindObjectOfType<AudioManager>();
+    {
+        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         _rb2d = GetComponent<Rigidbody2D>();
         _velocityChangeFunctions = GetComponent<VelocityChangeFunctions>();
         jumpDust = GameObject.Find("JumpDust").GetComponent<ParticleSystem>();
